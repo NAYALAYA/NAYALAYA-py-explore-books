@@ -58,16 +58,18 @@ with open("YA_Books.csv", mode = "r", encoding = "utf-8") as bookfile:
             max_pages = pages
             shortest_num_pages = row
 
+            small = row[5]
         # larger number of pages
         pages2 = int(row[5])
         if min_pages < pages2:
             min_pages = pages2
             longest_num_pages = row
 
+            large = row[5]
 
+    x = int(large) - int(small)
 
     print(f"Most recent book: \n{most_recent_book}")
     print(f"The worst rating: \n{worst_rating}")
     print(f"The highest rating: \n{highest_rating}")
-    print(longest_num_pages)    
-    print(shortest_num_pages)
+    print(x)
