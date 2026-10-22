@@ -1,12 +1,18 @@
-import streamlit as st
+import matplotlib.pyplot as plt
+import csv
 
-# Set up page configurations
-st.set_page_config(page_title="Books", layout="wide")
+with open("YA_Books.csv", mode = "r", encoding = "utf-8") as bookfile:
 
-# App content
-st.title("YA Books")
-st.write("Sup gng")
+    books = csv.reader(bookfile)
+    next(books)
 
-name = st.text_input("Enter your name:")
-if name:
-    st.success(f"Welcome, {name}!")
+    x = []
+    y = []
+
+    for row in books :
+
+        y.append(row[0])
+        x.append(row[6])
+
+plt.bar(x,y)
+plt.show()
